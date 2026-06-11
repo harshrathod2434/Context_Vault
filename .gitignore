@@ -1,0 +1,118 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+out/
+
+# Vite
+.vite/
+
+# Electron Builder
+release/
+*.dmg
+*.exe
+*.AppImage
+*.deb
+*.rpm
+*.snap
+*.zip
+*.tar.gz
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Database
+db/*.db
+db/*.sqlite
+db/*.sqlite3
+db/*.db-journal
+db/*.db-wal
+db/*.db-shm
+
+# User data & generated content
+captures/
+screenshots/
+contexts/
+exports/
+logs/
+temp/
+tmp/
+
+# API keys & secrets
+config.json
+settings.json
+user-settings.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains
+.idea/
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs
+*.log
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Tesseract cache
+tessdata/
+tesseract-cache/
+
+# Electron
+electron-debug.log
+
+# Coverage
+coverage/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Groq API Key storage
+apikey.json
+keys.json
+secrets.json
+
+# Generated screenshots and OCR data
+captures/**
+ocr/**
+memory_exports/**
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+db/*.sqlite
+db/*.sqlite-wal
+db/*.sqlite-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

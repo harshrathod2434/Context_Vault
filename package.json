@@ -1,0 +1,53 @@
+{
+  "name": "contextvault",
+  "version": "1.0.0",
+  "description": "Desktop Context Memory Extension for macOS",
+  "main": "main/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on tcp:5173 && electron .\"",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "active-win": "^8.2.1",
+    "axios": "^1.7.9",
+    "better-sqlite3": "^9.6.0",
+    "screenshot-desktop": "^1.15.0",
+    "tesseract.js": "^5.1.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "electron": "^29.4.6",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.contextvault.app",
+    "productName": "ContextVault",
+    "files": [
+      "build/**/*",
+      "main/**/*",
+      "public/**/*",
+      "package.json",
+      "entitlements.mac.plist"
+    ],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.productivity",
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}

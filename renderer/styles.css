@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens & base reset ─── */
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #111318;
+  color: #eef1f5;
+}
+
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+*:focus-visible {
+  outline: 2px solid #7c8cff;
+  outline-offset: 2px;
+}
+
+/* ─── Scrollbar styling ─── */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ─── Utility classes ─── */
+
+.center-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #9aa3b2;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Toast notification ─── */
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  max-width: 380px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(24, 27, 34, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #eef1f5;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(124, 140, 255, 0.08);
+  font-size: 14px;
+  font-weight: 500;
+  animation: toast-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes toast-in {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Controls ─── */
+
+.control {
+  border: 1px solid #2a2f3a;
+  background: #101219;
+  color: #eef1f5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.control:focus {
+  border-color: #7c8cff;
+}
+
+/* ─── Buttons ─── */
+
+.btn-primary {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c8cff 0%, #6a7bff 100%);
+  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.18s ease, opacity 0.18s ease, transform 0.12s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.btn-secondary {
+  border: 1px solid #2a2f3a;
+  border-radius: 8px;
+  color: #eef1f5;
+  padding: 9px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #181b22;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+
+.btn-secondary:hover {
+  background: #20242e;
+  border-color: #3a4050;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ─── Card hover animation ─── */
+
+article {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* ─── Light mode overrides ─── */
+
+html.light {
+  color-scheme: light;
+  background: #f7f8fb;
+  color: #151820;
+}
+
+html.light body,
+html.light #root {
+  background: #f7f8fb;
+  color: #151820;
+}
+
+html.light .bg-vault-bg {
+  background-color: #f7f8fb;
+}
+
+html.light .bg-vault-bg\/95 {
+  background-color: rgba(247, 248, 251, 0.95);
+}
+
+html.light .bg-vault-panel {
+  background-color: #ffffff;
+}
+
+html.light .bg-vault-input {
+  background-color: #f0f1f5;
+}
+
+html.light .text-vault-text {
+  color: #151820;
+}
+
+html.light .text-vault-muted {
+  color: #626b7a;
+}
+
+html.light .border-vault-line {
+  border-color: #d8dde7;
+}
+
+html.light .toast {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #151820;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+html.light .control {
+  border-color: #d8dde7;
+  background: #f0f1f5;
+  color: #151820;
+}
+
+html.light .btn-secondary {
+  background: #ffffff;
+  border-color: #d8dde7;
+  color: #151820;
+}
+
+html.light .btn-secondary:hover {
+  background: #f0f1f5;
+  border-color: #c0c5d0;
+}
+
+/* ─── Sensitivity modal overlay ─── */
+
+.sensitivity-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fade-in 0.2s ease;
+}
+
+.sensitivity-modal {
+  background: #1c1f28;
+  border: 1px solid #2a2f3a;
+  border-radius: 14px;
+  padding: 28px 32px;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  animation: modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.light .sensitivity-modal {
+  background: #ffffff;
+  border-color: #d8dde7;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ─── Loading spinner ─── */
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #7c8cff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
